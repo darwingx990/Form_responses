@@ -34,12 +34,6 @@ class FormsController < ApplicationController
     end
   end
 
-  private
-
-  def form_params
-    params.require(:form).permit(:name, :description, :processed_in_job)
-  end
-
   def process_form(form)
     response = HTTParty.post("https://api.openai.com/v1/your-endpoint", body: {input: form.name}, headers: {"Authorization" => "Bearer YOUR_API_KEY"})
     form.create_response!(ai_response: response['data'], status: 'completed')
