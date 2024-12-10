@@ -63,7 +63,7 @@ gem "tailwindcss-rails"
 # Jobs and scheduling
 gem 'sidekiq', '~> 7.2', '>= 7.2.4'
 gem 'sidekiq-scheduler', '~> 5.0', '>= 5.0.3'
-gem 'redis', '~> 4.0'
+gem 'redis', '~> 5.3'
 
 #OpenAI API requests
 # gem 'httparty'
