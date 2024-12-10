@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <title><%= content_for(:title) || "Form Responses" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -15,12 +15,34 @@
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "tailwind" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="bg-gray-50 text-gray-800 font-sans antialiased">
+    <!-- Header Section -->
+    <header class="bg-blue-500 text-white py-4">
+      <div class="container mx-auto px-4 flex items-center justify-between">
+        <h1 class="text-2xl font-bold">Form Responses</h1>
+        <nav>
+          <ul class="flex space-x-6">
+            <li><%= link_to 'Home', root_path, class: "text-white hover:text-blue-200 " %>  | </li>
+            <li><%= link_to 'Forms', forms_path, class: "text-white hover:text-blue-200" %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="container mx-auto mt-10 px-5">
       <%= yield %>
     </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-blue-500 text-white py-6 mt-10">
+      <div class="container mx-auto text-center">
+        <p>&copy; <%= Time.now.year %> Form Responses. Todos los derechos reservados.</p>
+      </div>
+    </footer>
   </body>
 </html>

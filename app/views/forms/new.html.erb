@@ -1,21 +1,42 @@
-<div class="max-w-2xl mx-auto mt-10">
-  <h1 class="text-2xl font-bold mb-4">Nuevo Formulario</h1>
-  <%= form_with model: @form, local: true, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" do |form| %>
-    <div class="mb-4">
-      <%= form.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-    <div class="mb-4">
-      <%= form.label :description, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= form.text_area :description, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
+<div class="max-w-2xl mx-auto mt-10 flex">
+  <%= form_with model: @form, local: true, class: "bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 w-full" do |form| %>
     <div class="mb-6">
-      <label class="block text-gray-700 text-sm font-bold mb-2">
-        <%= form.check_box :processed_in_job %> Procesar en job encolado
-      </label>
+      <h1 class="text-2xl font-bold text-gray-900 mb-6">New Form</h1>
+      
+      <!-- Campo Name -->
+      <%= form.label :name, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_field :name, class: "mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
+
+      <!-- Mensaje de error para el campo name -->
+      <div class="text-red-500 text-sm mt-1">
+        <%= @form.errors[:name].any? ? @form.errors[:name].join(', ') : '' %>
+      </div>
     </div>
-    <div class="flex items-center justify-between">
-      <%= form.submit "Guardar", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+
+    <!-- Campo Description -->
+    <div class="mb-6">
+      <%= form.label :description, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_area :description, class: "mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
     </div>
+
+    <!-- Campo Processed In Job -->
+    <div class="mb-6 flex items-center">
+      <%= form.check_box :processed_in_job, class: "h-5 w-5 text-blue-500 border-gray-300 rounded focus:ring-2 focus:ring-blue-500" %>
+      <label class="ml-2 text-sm text-gray-700">Procesar en job encolado</label>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="flex items-center justify-between space-x-4">
+      <%= form.submit "Guardar", class: "w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" %>
+
+      <!-- Botón de cancelar -->
+      <%= link_to 'Cancelar', forms_path, class: "w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50" %>
+    </div>
+
+    <!-- Volver a la lista de formularios -->
+    <div class="mt-4 text-center">
+      <%= link_to 'Volver a la lista de formularios', forms_path, class: "text-blue-500 hover:text-blue-700 text-sm font-semibold" %>
+    </div>
+
   <% end %>
 </div>

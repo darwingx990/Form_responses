@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_05_115121) do
     t.bigint "form_id", null: false
     t.text "ai_response"
     t.string "status"
+    t.string "user_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["form_id"], name: "index_responses_on_form_id"

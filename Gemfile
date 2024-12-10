@@ -65,5 +65,13 @@ gem 'sidekiq', '~> 7.2', '>= 7.2.4'
 gem 'sidekiq-scheduler', '~> 5.0', '>= 5.0.3'
 gem 'redis', '~> 4.0'
 
-#OpenAI requests
-gem 'httparty'
+#OpenAI API requests
+# gem 'httparty'
+gem 'openai'
+gem 'ruby-openai'
+
+# Loads "rails_serve_static_assets" and "rails_stdout_logging"
+gem "rails_12factor", group: :production 
+
+# Email settings
+gem 'mailcatcher' 

@@ -4,6 +4,7 @@ class CreateResponses < ActiveRecord::Migration[7.2]
       t.references :form, null: false, foreign_key: true
       t.text :ai_response
       t.string :status
+       t.string :user_email
 
       t.timestamps
     end

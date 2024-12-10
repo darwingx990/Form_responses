@@ -1,10 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<p class="text-green-500"><%= notice %></p>
 
 <%= render @form %>
 
-<div>
-  <%= link_to "Edit this form", edit_form_path(@form) %> |
-  <%= link_to "Back to forms", forms_path %>
+<div class="mt-6">
+  <p class="font-bold text-xl">Response Provided by OpenAI</p>
+  <p class="mt-2 text-gray-700">
+    <%= @form.response&.ai_response || 'N/A' %>
+  </p>
+</div>
 
-  <%= button_to "Destroy this form", @form, method: :delete %>
+<div class="mt-6 flex space-x-4">
+  <%= link_to "Back to forms", forms_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %> 
+  
+  <%= link_to 'Editar', edit_form_path(@form), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+
+  <%= button_to "Destroy this form", @form, method: :delete, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
 </div>

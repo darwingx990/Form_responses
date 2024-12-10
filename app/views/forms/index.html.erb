@@ -1,16 +1,39 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Forms" %>
 
-<h1>Forms</h1>
+<!-- Título resaltado -->
+<h1 class="text-4xl font-semibold text-blue-500 mb-8 text-center">Forms</h1>
 
-<div id="forms">
-  <% @forms.each do |form| %>
-    <%= render form %>
-    <p>
-      <%= link_to "Show this form", form %>
-    </p>
-  <% end %>
+<!-- Contenedor principal para la tabla -->
+<div class="overflow-x-auto bg-white shadow-lg rounded-lg p-4">
+  <table class="min-w-full bg-white border-collapse text-center">
+    <thead>
+      <tr class="bg-blue-500 text-white">
+        <th class="px-6 py-3 text-sm font-medium">Name</th>
+        <th class="px-6 py-3 text-sm font-medium">Description</th>
+        <th class="px-6 py-3 text-sm font-medium">Processed in Job</th>
+        <th class="px-6 py-3 text-sm font-medium">AI Response</th>
+        <th class="px-6 py-3 text-sm font-medium">Status</th>
+        <th class="px-6 py-3 text-sm font-medium">Actions</th> <!-- Acción de ver -->
+      </tr>
+    </thead>
+    <tbody>
+      <% @forms.each do |form| %>
+        <tr class="border-b border-gray-200 hover:bg-gray-100">
+          <td class="px-6 py-4 text-sm font-medium text-gray-900"><%= form.name %></td>
+          <td class="px-6 py-4 text-sm text-gray-600"><%= form.description %></td>
+          <td class="px-6 py-4 text-sm text-gray-600"><%= form.processed_in_job ? 'Yes' : 'No' %></td>
+          <td class="px-6 py-4 text-sm text-gray-600 w-1/2 truncate"><%= form.response&.ai_response || 'No Response' %></td> <!-- Columna más ancha -->
+          <td class="px-6 py-4 text-sm text-gray-600"><%= form.response&.status || 'Failed' %></td>
+          <td class="px-6 py-4 text-sm">
+            <%= link_to "Show", form, class: "hover:underline text-blue-500" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New form", new_form_path %>
+<!-- Enlace para crear un nuevo formulario -->
+<div class="mt-6 text-center">
+  <%= link_to 'New Form', new_form_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+</div>

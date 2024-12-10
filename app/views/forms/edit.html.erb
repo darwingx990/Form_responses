@@ -1,12 +1,33 @@
-<% content_for :title, "Editing form" %>
+<% content_for :title, "Editing Form" %>
 
-<h1>Editing form</h1>
+<div class="container mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
+  <h1 class="text-3xl font-semibold text-center text-blue-500 mb-6">Editing Form</h1>
 
-<%= render "form", form: @form %>
+  <!-- Formulario de edición -->
+  <%= form_with(model: @form, local: true, class: "space-y-4") do |form| %>
+    <div class="mb-4">
+      <%= form.label :name, "Form Name", class: "block text-sm font-bold text-gray-700" %>
+      <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", value: @form.name %>
+    </div>
 
-<br>
+    <div class="mb-4">
+      <%= form.label :description, "Description", class: "block text-sm font-bold text-gray-700" %>
+      <%= form.text_area :description, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", value: @form.description %>
+    </div>
 
-<div>
-  <%= link_to "Show this form", @form %> |
-  <%= link_to "Back to forms", forms_path %>
+    <div class="mb-4">
+      <%= form.label :processed_in_job, "Processed in Job", class: "block text-sm font-bold text-gray-700" %>
+      <%= form.check_box :processed_in_job, class: "form-checkbox text-blue-500" %>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <%= form.submit "Save Changes", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    </div>
+  <% end %>
+
+  <!-- Enlaces para volver a la vista de este formulario o al listado de formularios -->
+  <div class="mt-6 flex justify-between">
+    <%= link_to "Show this form", @form, class: "text-blue-500 hover:text-blue-700 font-semibold" %> 
+    <%= link_to "Back to forms", forms_path, class: "text-blue-500 hover:text-blue-700 font-semibold" %>
+  </div>
 </div>

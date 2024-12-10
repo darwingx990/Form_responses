@@ -3,12 +3,13 @@ class UserMailer < ApplicationMailer
   # with the following lookup:
   #
   #   en.user_mailer.response_ready.subject
+  #
 
-  default from: 'notifications@example.com'
+  default from: 'notifications@ddyalas.com'
 
-  def response_ready
+  def response_ready(user_email)
+    @user_email= user_email
     @form = params[:form]
-    mail(to: 'user@example.com', subject: 'Your response is ready')
+    mail(to: 'darwingx990@hotmail.com', subject: 'Your answer is ready.')
   end
 end
-

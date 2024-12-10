@@ -1,17 +1,16 @@
-<div id="<%= dom_id form %>">
-  <p>
-    <strong>Name:</strong>
-    <%= form.name %>
+<div id="<%= dom_id form %>" class="bg-white p-6 rounded-lg shadow-md mb-6">
+  <p class="mb-4">
+    <strong class="text-blue-500">Name:</strong>
+    <span class="text-gray-700"><%= form.name %></span>
   </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= form.description %>
+  <p class="mb-4">
+    <strong class="text-blue-500">Description:</strong>
+    <span class="text-gray-700"><%= form.description %></span>
   </p>
 
-  <p>
-    <strong>Processed in job:</strong>
-    <%= form.processed_in_job %>
+  <p class="mb-4">
+    <strong class="text-blue-500">Processed in job:</strong>
+    <span class="text-gray-700"><%= form.processed_in_job ? 'Yes' : 'No' %></span>
   </p>
-
 </div>
