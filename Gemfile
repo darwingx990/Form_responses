@@ -61,7 +61,7 @@ gem 'dotenv-rails'
 gem "tailwindcss-rails"
 
 # Jobs and scheduling
-gem 'sidekiq', '~> 7.2', '>= 7.2.4'
+gem 'sidekiq', '~> 7.3'
 gem 'sidekiq-scheduler', '~> 5.0', '>= 5.0.3'
 gem 'redis', '~> 4.0'
 
